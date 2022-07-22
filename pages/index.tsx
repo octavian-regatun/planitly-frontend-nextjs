@@ -3,7 +3,7 @@ import GoogleLoginCard from "../components/GoogleLoginCard";
 
 const Home: NextPage = () => {
   return (
-    <div className="grid grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900">
+    <div className="grid grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900 h-full w-full">
       <div className="flex flex-col flex-1 col-span-9 justify-center px-24 items-center">
         <h1 className="w-fit text-9xl text-center mb-24 text-white  ">
           PlanITLY
