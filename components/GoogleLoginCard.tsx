@@ -1,11 +1,18 @@
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import Router, { useRouter } from "next/router";
 import GoogleLogin from "react-google-login";
 import fetchJwt from "../lib/fetchJwt";
+import { authStore } from "../store/authStore";
 
 async function handleSuccess(response: any) {
   const tokenId = response.tokenId as string;
 
-  console.log(tokenId);
-  console.log(await fetchJwt(tokenId));
+  const jwt = await fetchJwt(tokenId);
+  console.log(jwt);
+  // TODO: if jwt is undefined do something
+  localStorage.setItem("jwt", jwt || "undefined");
+
+  // Router.push("dashboard");
 }
 
 function handleFailure(err: any) {
@@ -13,10 +20,12 @@ function handleFailure(err: any) {
 }
 
 export default function GoogleLoginCard() {
+  const router = useRouter();
   return (
     <GoogleLogin
       onSuccess={async (res) => {
         await handleSuccess(res);
+        router.push("dashboard");
       }}
       onFailure={async (err) => {
         await handleFailure(err);
