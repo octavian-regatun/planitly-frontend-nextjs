@@ -12,16 +12,18 @@ export default function RequireAuth(props: Props) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
+    (async () => {
+      const jwt = localStorage.getItem("jwt");
 
-    if (jwt) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
+      if (jwt) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
 
-      const isJwtValid = checkValidJwt();
+        const isJwtValid = await checkValidJwt();
 
-      if (isJwtValid) setIsAuthenticated(true);
-      else setIsAuthenticated(false);
-    } else setIsAuthenticated(false);
+        if (isJwtValid) setIsAuthenticated(true);
+        else setIsAuthenticated(false);
+      } else setIsAuthenticated(false);
+    })();
   }, []);
 
   return isAuthenticated ? <>{children}</> : <>please log in</>;
