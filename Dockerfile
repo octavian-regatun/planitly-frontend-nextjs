@@ -1,18 +1,11 @@
-FROM node:alpine
-
-RUN mkdir -p /usr/src/app
-ENV PORT 3000
-
+FROM node:lts-alpine
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app
-COPY yarn.lock /usr/src/app
+COPY . ./
 
-RUN yarn install --production
+# building the app
+RUN npm i
+RUN npm run build
 
-COPY . /usr/src/app
-
-RUN yarn build
-
-EXPOSE 3000
-CMD [ "yarn", "start" ]
+# Running the app
+CMD [ "npm", "start" ]
