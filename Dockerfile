@@ -8,8 +8,6 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app
 COPY yarn.lock /usr/src/app
 
-USER node
-
 RUN yarn install --production
 
 COPY . /usr/src/app
