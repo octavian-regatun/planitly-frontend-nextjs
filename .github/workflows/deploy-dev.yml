@@ -16,6 +16,7 @@ jobs:
         with:
           envkey_DEBUG: false
           envkey_NEXT_PUBLIC_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}
+          envkey_NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID}}
           file_name: .env.local
           fail_on_empty: false
 
