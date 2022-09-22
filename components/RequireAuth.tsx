@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import checkValidJwt from "../lib/checkValidJwt";
+import checkValidJwt from "../utilities/checkValidJwt";
 
 interface Props {
   children: any;
