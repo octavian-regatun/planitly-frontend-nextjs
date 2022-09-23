@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import checkValidJwt from "../utilities/checkValidJwt";
+import FullScreenLoader from "./FullScreenLoader";
 
 interface Props {
   children: any;
@@ -10,9 +11,11 @@ export default function RequireAuth(props: Props) {
   const { children } = props;
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
       const jwt = localStorage.getItem("jwt");
 
       if (jwt) {
@@ -23,8 +26,15 @@ export default function RequireAuth(props: Props) {
         if (isJwtValid) setIsAuthenticated(true);
         else setIsAuthenticated(false);
       } else setIsAuthenticated(false);
+      setIsLoading(false);
     })();
   }, []);
 
-  return isAuthenticated ? <>{children}</> : <>please log in</>;
+  return isLoading ? (
+    <FullScreenLoader />
+  ) : isAuthenticated ? (
+    <>{children}</>
+  ) : (
+    <>please log in</>
+  );
 }
