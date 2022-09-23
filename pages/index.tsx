@@ -1,8 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
 import GoogleLoginCard from "../components/GoogleLoginCard";
 
 const Home: NextPage = () => {
+  useEffect(()=>{
+    console.log(process.env.NEXT_PUBLIC_BACKEND_URL)
+  },[])
   return (
     <>
       <Head>
