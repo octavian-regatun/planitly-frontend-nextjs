@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useRouter } from "next/router";
+import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import checkValidJwt from "../utilities/checkValidJwt";
 import FullScreenLoader from "./FullScreenLoader";
@@ -13,6 +15,9 @@ export default function RequireAuth(props: Props) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { enqueueSnackbar } = useSnackbar();
+  const router = useRouter();
+
   useEffect(() => {
     (async () => {
       setIsLoading(true);
@@ -24,8 +29,16 @@ export default function RequireAuth(props: Props) {
         const isJwtValid = await checkValidJwt();
 
         if (isJwtValid) setIsAuthenticated(true);
-        else setIsAuthenticated(false);
-      } else setIsAuthenticated(false);
+        else {
+          setIsAuthenticated(false);
+          enqueueSnackbar("Please log in!", { variant: "error" });
+          router.push("/");
+        }
+      } else {
+        setIsAuthenticated(false);
+        enqueueSnackbar("Please log in!", { variant: "error" });
+        router.push("/");
+      }
       setIsLoading(false);
     })();
   }, []);
@@ -35,6 +48,6 @@ export default function RequireAuth(props: Props) {
   ) : isAuthenticated ? (
     <>{children}</>
   ) : (
-    <>please log in</>
+    <FullScreenLoader />
   );
 }

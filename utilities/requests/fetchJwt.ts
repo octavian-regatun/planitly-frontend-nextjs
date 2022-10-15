@@ -11,6 +11,4 @@ export default async function fetchJwt(tokenId: string) {
   } catch (e) {
     console.log(e);
   }
-
-  console.log(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google`);
 }

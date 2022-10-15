@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import GoogleLogin from "react-google-login";
-import fetchJwt from "../utilities/fetchJwt";
+import fetchJwt from "../utilities/requests/fetchJwt";
 
 async function handleSuccess(response: any) {
   const tokenId = response.tokenId as string;

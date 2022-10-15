@@ -1,15 +1,21 @@
+import Head from "next/head";
 import DashboardContent from "../components/DashboardContent";
 import Layout from "../components/Layout";
 import RequireAuth from "../components/RequireAuth";
 
 export default function DashboardPage() {
   return (
-    <RequireAuth>
-      <Layout>
-        <div className="w-full h-full grid grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900">
-          <DashboardContent />
-        </div>
-      </Layout>
-    </RequireAuth>
+    <>
+      <Head>
+        <title>PlanITLY - Dashboard</title>
+      </Head>
+      <RequireAuth>
+        <Layout>
+          <div className="w-full h-full grid grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900 p-8">
+            <DashboardContent />
+          </div>
+        </Layout>
+      </RequireAuth>
+    </>
   );
 }
