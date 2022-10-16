@@ -10,9 +10,11 @@ import {
   TextField,
 } from "@mui/material";
 import { DateTimePicker } from "@mui/x-date-pickers";
+import { useQuery } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useSnackbar } from "notistack";
+import { ChangeEvent, useEffect, useState } from "react";
 import { ColorResult, GithubPicker, TwitterPicker } from "react-color";
 import {
   MdColorLens,
@@ -23,36 +25,27 @@ import {
   MdToday,
 } from "react-icons/md";
 import * as yup from "yup";
+import Event from "../models/Event";
 import { LatLon } from "../store/currentLocationStore";
 import { mapFormikErrorsToStringArr } from "../utilities/errorUtilities";
+import { fromFileToBase64 } from "../utilities/imageUtilities";
+import { postEvent } from "../utilities/requests/postEvent";
 import Map from "./Map";
 import Text from "./Text";
-
-interface CreateNewEventSchema {
-  title: string;
-  description: string;
-  color: string;
-  allDay: boolean;
-  startAt: Date | null;
-  endAt: Date | null;
-}
 
 const MapNoSsr = dynamic(() => import("../components/Map"), {
   ssr: false,
 });
 
 export default function CreateNewEventPopover() {
-  const [pickedPosition, setPickedPosition] = useState<LatLon | undefined>(
-    undefined
-  );
-
-  const createNewEventSchema = yup.object().shape({
+  const Event = yup.object().shape({
     title: yup
       .string()
       .min(1, "Title is too short.")
       .max(50, "Title is too long.")
       .required("Title is required."),
     description: yup.string().max(1000, "Description is too long."),
+    picture: yup.string(),
     color: yup.string().required("Color is required."),
     allDay: yup.boolean().required("All day is required."),
     startAt: yup
@@ -65,35 +58,73 @@ export default function CreateNewEventPopover() {
       .required("End At is required."),
   });
 
-  function handleSubmit(values: CreateNewEventSchema) {
-    alert(JSON.stringify(values, null, 2));
-  }
-
-  const formik = useFormik<CreateNewEventSchema>({
+  const formik = useFormik<Event>({
     initialValues: {
       title: "",
-      description: "",
+      description: undefined,
       color: "#FF0000",
+      picture: undefined,
       allDay: false,
-      startAt: null,
-      endAt: null,
+      startAt: new Date(),
+      endAt: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
-    validationSchema: createNewEventSchema,
+    validationSchema: Event,
     onSubmit: handleSubmit,
   });
 
-  const errors = mapFormikErrorsToStringArr<CreateNewEventSchema>(
-    formik.errors
+  const [pickedPosition, setPickedPosition] = useState<LatLon | undefined>(
+    undefined
   );
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { refetch } = useQuery(
+    ["postEvent", { event: formik.values }],
+    postEvent,
+    {
+      enabled: false,
+      onSuccess: () => {
+        enqueueSnackbar("Event created successfully.", { variant: "success" });
+      },
+    }
+  );
+
+  function handleSubmit(values: Event) {
+    refetch();
+  }
+
+  async function handlePictureUpload(event: ChangeEvent<HTMLInputElement>) {
+    if (!event.currentTarget.files) return;
+
+    var base64Picture = await fromFileToBase64(event.currentTarget.files[0]);
+
+    formik.setFieldValue("picture", base64Picture);
+  }
+
+  const errors = mapFormikErrorsToStringArr<Event>(formik.errors);
 
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="bg-white flex flex-col w-96 p-4"
+      className="bg-white flex flex-col w-[500px] p-4 rounded-md max-h-[calc(100vh-64px)] overflow-y-auto"
     >
       <Text type="h4" className="mb-8 font-medium text-center">
         Create New Event
       </Text>
+      <div className="mb-4 flex items-center justify-center">
+        <Button variant="contained" component="label">
+          Upload Picture
+          <input
+            type="file"
+            accept="image/*"
+            name="picture"
+            hidden
+            onChange={handlePictureUpload}
+          />
+        </Button>
+      </div>
       <div className="mb-4 flex items-center">
         <MdTitle size={32} className="mr-2" />
         <TextField

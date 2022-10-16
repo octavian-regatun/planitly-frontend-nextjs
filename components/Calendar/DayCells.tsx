@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { calendarStore } from "../../store/calendarStore";
 import { fetchCalendar } from "../../utilities/requests/fetchCalendar";
 import DayCell from "./DayCell";

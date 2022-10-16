@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
 import { SnackbarProvider } from "notistack";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "../styles/globals.scss";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
