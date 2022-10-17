@@ -1,8 +1,8 @@
 import { format } from "date-fns";
-import { calendarStore } from "../../store/calendarStore";
+import { useCalendarStore } from "../../store/calendarStore";
 import Text from "../Text";
 export default function CurrentDate() {
-  const currentDate = calendarStore((x) => x.date);
+  const currentDate = useCalendarStore((x) => x.date);
 
   return (
     <Text type="h3" className="text-white text-center">

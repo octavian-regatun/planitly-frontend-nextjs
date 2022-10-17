@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { calendarStore } from "../../store/calendarStore";
+import { useCalendarStore } from "../../store/calendarStore";
 import { fetchCalendar } from "../../utilities/requests/fetchCalendar";
 import DayCell from "./DayCell";
 
 export default function DayCells() {
-  const currentDate = calendarStore((x) => x.date);
+  const currentDate = useCalendarStore((x) => x.date);
 
   const calendarQuery = useQuery(
     ["calendar"],

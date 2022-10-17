@@ -6,7 +6,7 @@ interface CalendarStore {
   prevMonth: () => void;
 }
 
-export const calendarStore = create<CalendarStore>((set) => ({
+export const useCalendarStore = create<CalendarStore>((set) => ({
   date: new Date(),
   nextMonth: () =>
     set((prevState) => ({ date: new Date(prevState.date.getMonth() + 1) })),
