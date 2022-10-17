@@ -195,6 +195,7 @@ export default function CreateNewEventPopover() {
             Event Color
           </Text>
           <TwitterPicker
+            color={formik.values.color}
             onChange={(value: ColorResult) => {
               formik.setFieldValue("color", value.hex);
             }}
