@@ -6,6 +6,7 @@ import "../styles/globals.scss";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import "leaflet/dist/leaflet.css";
+import { SnackbarUtilsConfigurator } from "../components/SnackbarUtilsConfigurator";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       >
         <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <SnackbarUtilsConfigurator />
           <Component {...pageProps} />
         </LocalizationProvider>
       </SnackbarProvider>
