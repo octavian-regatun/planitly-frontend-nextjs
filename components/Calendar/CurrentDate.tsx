@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { useCalendarStore } from "../../store/calendarStore";
+import { useCalendarStore } from "../../store/useCalendarStore";
 import Text from "../Text";
 export default function CurrentDate() {
   const currentDate = useCalendarStore((x) => x.date);
