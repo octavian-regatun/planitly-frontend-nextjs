@@ -7,7 +7,7 @@ export default function DayCells() {
   const currentDate = useCalendarStore((x) => x.date);
 
   const calendarQuery = useQuery(
-    ["calendar"],
+    ["calendar", currentDate],
     async () =>
       await fetchCalendar(currentDate.getFullYear(), currentDate.getMonth())
   );
