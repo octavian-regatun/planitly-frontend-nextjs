@@ -9,7 +9,12 @@ interface CalendarStore {
 export const calendarStore = create<CalendarStore>((set) => ({
   date: new Date(),
   nextMonth: () =>
-    set((prevState) => ({ date: new Date(prevState.date.getMonth() + 1) })),
-  prevMonth: () =>
-    set((prevState) => ({ date: new Date(prevState.date.getMonth() - 1) })),
+    set((state) => ({
+      date: new Date(state.date.setMonth(state.date.getMonth() + 1)),
+    })),
+  prevMonth: () => {
+    set((state) => ({
+      date: new Date(state.date.setMonth(state.date.getMonth() - 1)),
+    }));
+  },
 }));
