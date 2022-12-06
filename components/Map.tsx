@@ -43,7 +43,7 @@ export default function Map(props: Props) {
         center={[0, 0]}
         zoom={13}
         scrollWheelZoom={false}
-        className="h-64 w-full"
+        className="h-64 w-full rounded"
       >
         <MapLogic setPickedLocation={setPickedLocation} />
         <TileLayer

@@ -1,4 +1,4 @@
-import { Popover } from "@mui/material";
+import { Modal, Popover } from "@mui/material";
 import { useRef, useState } from "react";
 import CreateNewEventPopover from "../CreateNewEventPopup";
 
@@ -33,21 +33,11 @@ export default function DayCell({ day, isCurrentMonth }: Props) {
       >
         {day.getDate()}
       </div>
-      <Popover
-        open={isPopupOpen}
-        anchorEl={anchorEl.current}
-        onClose={closePopup}
-        anchorOrigin={{
-          vertical: "center",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-      >
-        <CreateNewEventPopover />
-      </Popover>
+      <Modal open={isPopupOpen} onClose={closePopup}>
+        <div className="flex h-screen justify-center backdrop-blur overflow-auto p-4 pointer-events-none">
+          <CreateNewEventPopover />
+        </div>
+      </Modal>
     </>
   );
 }
