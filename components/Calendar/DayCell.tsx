@@ -28,13 +28,13 @@ export default function DayCell({ day, isCurrentMonth }: Props) {
     <>
       <div
         ref={anchorEl}
-        className={`text-center ${getTextColor()} p-2 hover:backdrop-brightness-75`}
+        className={`text-center ${getTextColor()} p-2 hover:backdrop-brightness-75 hover:cursor-pointer`}
         onClick={openPopup}
       >
         {day.getDate()}
       </div>
       <Modal open={isPopupOpen} onClose={closePopup}>
-        <div className="flex h-screen justify-center backdrop-blur overflow-auto p-4 pointer-events-none">
+        <div className="flex h-screen justify-center backdrop-blur overflow-auto p-4">
           <CreateNewEventPopover />
         </div>
       </Modal>

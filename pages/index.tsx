@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import GoogleLoginCard from "../components/GoogleLoginCard";
+import Typewriter from "typewriter-effect";
 
 const Home: NextPage = () => {
   return (
@@ -13,12 +14,31 @@ const Home: NextPage = () => {
           <h1 className="w-fit text-7xl md:text-9xl text-center mb-24 text-white  ">
             PlanITLY
           </h1>
-          <h1 className="w-full text-xl md:text-7xl text-center text-white">
-            Its now easier than ever to <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-              organize events for everyone
-            </span>
-          </h1>
+          <div className="w-full text-xl md:text-7xl text-center text-white">
+            <Typewriter
+              options={{ loop: true }}
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("Its now easier than ever to <br/>")
+                  .typeString(
+                    "<span class='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500'>organize events for everyone</span>"
+                  )
+                  .pauseFor(2500)
+                  .deleteChars(28)
+                  .typeString(
+                    "<span class='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500'>plan a new trip with your friends</span>"
+                  )
+                  .pauseFor(2500)
+                  .deleteChars(33)
+                  .typeString(
+                    "<span class='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500'>think about your future excursions</span>"
+                  )
+                  .pauseFor(2500)
+                  .deleteChars(34)
+                  .start();
+              }}
+            />
+          </div>
         </div>
         <div className="flex-1 h-full flex justify-center items-center col-span-12 md:col-span-3">
           <GoogleLoginCard />

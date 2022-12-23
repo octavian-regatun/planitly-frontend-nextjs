@@ -1,17 +1,14 @@
 import axios from "axios";
-import Event from "../../models/Event";
+import { CreateEventDto } from "../../dto/CreateEventDto";
 
-type ReactQuery = [string, { event: Event }];
-
-export async function postEvent({ queryKey }: any) {
-  const [_key, { event }] = queryKey;
+export async function postEvent(event: CreateEventDto) {
   try {
-    const res = await axios.post(
+    const { data } = await axios.post(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/events`,
       event
     );
 
-    return res;
+    return data;
   } catch (e) {
     console.log(e);
   }

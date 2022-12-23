@@ -9,12 +9,12 @@ import {
   TextField,
 } from "@mui/material";
 import { DateTimePicker } from "@mui/x-date-pickers";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import dynamic from "next/dynamic";
 import { useSnackbar } from "notistack";
-import { ChangeEvent, useEffect, useState } from "react";
-import { ColorResult, GithubPicker, TwitterPicker } from "react-color";
+import { ChangeEvent, useState } from "react";
+import { ColorResult, TwitterPicker } from "react-color";
 import {
   MdColorLens,
   MdEvent,
@@ -29,7 +29,6 @@ import { LatLon } from "../store/currentLocationStore";
 import { mapFormikErrorsToStringArr } from "../utilities/errorUtilities";
 import { fromFileToBase64 } from "../utilities/imageUtilities";
 import { postEvent } from "../utilities/requests/postEvent";
-import Map from "./Map";
 import Text from "./Text";
 
 const MapNoSsr = dynamic(() => import("../components/Map"), {
@@ -37,13 +36,30 @@ const MapNoSsr = dynamic(() => import("../components/Map"), {
 });
 
 export default function CreateNewEventPopover() {
-  const Event = yup.object().shape({
+  const [pickedPosition, setPickedPosition] = useState<LatLon | undefined>(
+    undefined
+  );
+
+  const queryClient = useQueryClient();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { refetch } = useQuery({
+    queryKey: ["postEvent"],
+    queryFn: () => postEvent(formik.values),
+    enabled: false,
+    onSuccess: () => {
+      enqueueSnackbar("Event created successfully.", { variant: "success" });
+      queryClient.invalidateQueries({ queryKey: ["allEvents"] });
+    },
+  });
+
+  const schema = yup.object().shape({
     title: yup
       .string()
       .min(1, "Title is too short.")
       .max(50, "Title is too long.")
       .required("Title is required."),
-    description: yup.string().max(1000, "Description is too long."),
+    description: yup.string().max(1000, "Description is too long.").nullable(),
     picture: yup.string(),
     color: yup.string().required("Color is required."),
     allDay: yup.boolean().required("All day is required."),
@@ -57,23 +73,17 @@ export default function CreateNewEventPopover() {
       .required("End At is required."),
   });
 
-  function handleSubmit(values: CreateEventDto) {
-    alert(JSON.stringify(values, null, 2));
-  }
-
   const formik = useFormik<CreateEventDto>({
     initialValues: {
       title: "",
-      description: undefined,
+      description: null,
       color: "#FF0000",
-      picture: undefined,
+      picture: "",
       allDay: false,
       startAt: new Date(),
       endAt: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
     },
-    validationSchema: Event,
+    validationSchema: schema,
     onSubmit: handleSubmit,
   });
 
@@ -108,7 +118,7 @@ export default function CreateNewEventPopover() {
     },
   };
 
-  function handleSubmit(values: Event) {
+  function handleSubmit() {
     refetch();
   }
 
@@ -119,8 +129,6 @@ export default function CreateNewEventPopover() {
 
     formik.setFieldValue("picture", base64Picture);
   }
-
-  const errors = mapFormikErrorsToStringArr<Event>(formik.errors);
 
   return (
     <form
@@ -225,7 +233,6 @@ export default function CreateNewEventPopover() {
             onChange={(value: ColorResult) => {
               formik.setFieldValue("color", value.hex);
             }}
-            color={formik.values.color}
             className="w-full"
           />
         </Paper>

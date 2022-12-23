@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { calendarStore } from "../../store/calendarStore";
-import { fetchCalendar } from "../../utilities/requests/fetchCalendar";
+import { useCalendarStore } from "../../store/useCalendarStore";
 import DayCell from "./DayCell";
 
 interface Props {
@@ -10,7 +8,7 @@ interface Props {
 export default function WeekCell(props: Props) {
   const { week } = props;
 
-  const pickedDate = calendarStore((state) => state.date);
+  const pickedDate = useCalendarStore((state) => state.date);
 
   function isCurrentMonth(date: Date) {
     return pickedDate.getMonth() === date.getMonth();

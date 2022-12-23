@@ -4,6 +4,10 @@ import { getNavbarTitle } from "../utilities/navbarUtilities";
 import Logo from "./Logo";
 import ProfileSectionNavbar from "./ProfileSectionNavbar";
 import Text from "./Text";
+import { MdSettings } from "react-icons/md";
+import { MdNotifications } from "react-icons/md";
+
+import Link from "next/link";
 
 export default function Navbar() {
   const router = useRouter();
@@ -22,8 +26,20 @@ export default function Navbar() {
           {navbarTitle}
         </Text>
       </div>
-      <div className="col-span-3 h-full">
+      <div className="col-span-3 h-full flex items-center text-white">
         <ProfileSectionNavbar firstName="Octavian" lastName="Regatun" />
+        <Link href="settings">
+          <MdSettings
+            size={28}
+            className="box-content p-2 hover:bg-white hover:bg-opacity-5 rounded-full"
+          />
+        </Link>
+        <button>
+          <MdNotifications
+            size={28}
+            className="box-content p-2 hover:bg-white hover:bg-opacity-5 rounded-full"
+          />
+        </button>
       </div>
     </nav>
   );

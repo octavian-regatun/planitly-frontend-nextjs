@@ -55,7 +55,7 @@ export default function Map(props: Props) {
             position={[pickedPosition?.lat || 0, pickedPosition?.lon || 0]}
           >
             <Popup>
-              <Button color="error" onClick={handleMarkerRemove}>
+              <Button color="error" variant="contained" onClick={handleMarkerRemove}>
                 remove
               </Button>
             </Popup>

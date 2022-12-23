@@ -6,7 +6,7 @@ export default function Layout({ children }: Props) {
     <>
       <Sidebar />
       <Navbar />
-      <main className="h-screen w-screen pl-16 pt-16">{children}</main>
+      <main className="h-screen max-h-screen w-screen pl-16 pt-16">{children}</main>
     </>
   );
 }
