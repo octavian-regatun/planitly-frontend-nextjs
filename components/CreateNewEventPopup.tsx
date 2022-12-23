@@ -5,7 +5,6 @@ import {
   Checkbox,
   FormControlLabel,
   FormGroup,
-  NoSsr,
   Paper,
   TextField,
 } from "@mui/material";
@@ -25,7 +24,7 @@ import {
   MdToday,
 } from "react-icons/md";
 import * as yup from "yup";
-import Event from "../models/Event";
+import { CreateEventDto } from "../dto/CreateEventDto";
 import { LatLon } from "../store/currentLocationStore";
 import { mapFormikErrorsToStringArr } from "../utilities/errorUtilities";
 import { fromFileToBase64 } from "../utilities/imageUtilities";
@@ -58,7 +57,11 @@ export default function CreateNewEventPopover() {
       .required("End At is required."),
   });
 
-  const formik = useFormik<Event>({
+  function handleSubmit(values: CreateEventDto) {
+    alert(JSON.stringify(values, null, 2));
+  }
+
+  const formik = useFormik<CreateEventDto>({
     initialValues: {
       title: "",
       description: undefined,
@@ -74,22 +77,36 @@ export default function CreateNewEventPopover() {
     onSubmit: handleSubmit,
   });
 
-  const [pickedPosition, setPickedPosition] = useState<LatLon | undefined>(
-    undefined
-  );
+  const errors = mapFormikErrorsToStringArr<CreateEventDto>(formik.errors);
 
-  const { enqueueSnackbar } = useSnackbar();
-
-  const { refetch } = useQuery(
-    ["postEvent", { event: formik.values }],
-    postEvent,
-    {
-      enabled: false,
-      onSuccess: () => {
-        enqueueSnackbar("Event created successfully.", { variant: "success" });
+  const whiteTextFieldStyles = {
+    "& .MuiInputBase-input": {
+      color: "white",
+    },
+    "& label.Mui-focused": {
+      color: "white",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "white",
+    },
+    "& .MuiInputLabel-root": {
+      color: "white",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white",
       },
-    }
-  );
+      "&:hover fieldset": {
+        borderColor: "white",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white",
+      },
+    },
+    "& .MuiSvgIcon-root": {
+      color: "white",
+    },
+  };
 
   function handleSubmit(values: Event) {
     refetch();
@@ -108,7 +125,7 @@ export default function CreateNewEventPopover() {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="bg-white flex flex-col w-[500px] p-4 rounded-md max-h-[calc(100vh-64px)] overflow-y-auto"
+      className="bg-white flex flex-col w-screen max-w-screen-md p-4 h-fit rounded bg-gradient-to-r from-indigo-900 to-slate-900 text-white pointer-events-auto"
     >
       <Text type="h4" className="mb-8 font-medium text-center">
         Create New Event
@@ -134,6 +151,7 @@ export default function CreateNewEventPopover() {
           value={formik.values.title}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          sx={whiteTextFieldStyles}
         />
       </div>
       <div className="mb-4 flex items-center">
@@ -146,6 +164,7 @@ export default function CreateNewEventPopover() {
           value={formik.values.description}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          sx={whiteTextFieldStyles}
         />
       </div>
       <div className="mb-4 flex items-center ml-9">
@@ -156,6 +175,9 @@ export default function CreateNewEventPopover() {
                 name="allDay"
                 onChange={formik.handleChange}
                 value={formik.values.allDay}
+                sx={{
+                  color: "white",
+                }}
               />
             }
             label="All Day"
@@ -170,7 +192,9 @@ export default function CreateNewEventPopover() {
           onChange={(x) => {
             formik.setFieldValue("startAt", x);
           }}
-          renderInput={(params) => <TextField {...params} name="startAt" />}
+          renderInput={(params) => (
+            <TextField {...params} name="startAt" sx={whiteTextFieldStyles} />
+          )}
           className="w-full"
           ampm={false}
         />
@@ -183,15 +207,17 @@ export default function CreateNewEventPopover() {
           onChange={(x) => {
             formik.setFieldValue("endAt", x);
           }}
-          renderInput={(params) => <TextField {...params} name="endAt" />}
+          renderInput={(params) => (
+            <TextField {...params} name="endAt" sx={whiteTextFieldStyles} />
+          )}
           className="w-full"
           ampm={false}
         />
       </div>
       <div className="mb-4 flex items-center">
         <MdColorLens size={32} className="mr-2" />
-        <Paper className="flex-1">
-          <Text type="h6" className="py-2 text-center">
+        <Paper className="flex-1 bg-transparent">
+          <Text type="h6" className="py-2 text-center text-white">
             Event Color
           </Text>
           <TwitterPicker
@@ -199,14 +225,15 @@ export default function CreateNewEventPopover() {
             onChange={(value: ColorResult) => {
               formik.setFieldValue("color", value.hex);
             }}
+            color={formik.values.color}
             className="w-full"
           />
         </Paper>
       </div>
       <div className="mb-4 flex items-center">
         <MdLocationOn size={32} className="mr-2" />
-        <Paper className="flex-1">
-          <Text type="h6" className="py-2 text-center">
+        <Paper className="flex-1 bg-transparent">
+          <Text type="h6" className="py-2 text-center text-white">
             Location
           </Text>
           <MapNoSsr

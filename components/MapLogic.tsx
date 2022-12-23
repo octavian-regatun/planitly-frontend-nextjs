@@ -3,7 +3,7 @@ import { useMap, useMapEvents } from "react-leaflet";
 import { publicIpv4 } from "public-ip";
 import { useIpStore } from "../store/useIpStore";
 import { LatLon, useCurrentLocationStore } from "../store/currentLocationStore";
-import { fetchIpLocation } from "../utilities/requests/fetchIpLocation";
+import { fetchLocation } from "../utilities/requests/fetchIpLocation";
 
 interface Props {
   setPickedLocation: Dispatch<SetStateAction<LatLon | undefined>>;
@@ -31,7 +31,7 @@ export default function MapLogic(props: Props) {
   useEffect(() => {
     (async () => {
       if (!ip) return;
-      const location = await fetchIpLocation(ip);
+      const location = await fetchLocation(ip);
 
       if (!location) return;
       setCurrentLocation(location);

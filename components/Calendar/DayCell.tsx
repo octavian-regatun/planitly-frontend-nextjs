@@ -34,7 +34,7 @@ export default function DayCell({ day, isCurrentMonth }: Props) {
         {day.getDate()}
       </div>
       <Modal open={isPopupOpen} onClose={closePopup}>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="flex h-screen justify-center backdrop-blur overflow-auto p-4 pointer-events-none">
           <CreateNewEventPopover />
         </div>
       </Modal>

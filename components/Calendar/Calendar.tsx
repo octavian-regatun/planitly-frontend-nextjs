@@ -1,7 +1,6 @@
 import ChangeMonthButton from "./ChangeMonthButton";
 import CurrentDate from "./CurrentDate";
-import DayCells from "./DayCells";
-import WeekDays from "./WeekDays";
+import WeekCells from "./WeekCells";
 
 export default function Calendar() {
   return (
@@ -11,8 +10,7 @@ export default function Calendar() {
         <CurrentDate />
         <ChangeMonthButton action="next" />
       </div>
-      <WeekDays />
-      <DayCells />
+      <WeekCells />
     </div>
   );
 }

@@ -1,16 +1,18 @@
-export default function Button({ className, children, onClick }: Props) {
+interface Props {
+  className?: string;
+  children: any;
+  onClick?: () => void;
+}
+
+export default function Button(props: Props) {
+  const { className, children, onClick } = props;
+
   return (
     <button
-      onClick={onClick}
       className={`${className} hover:bg-opacity-5 hover:bg-white`}
+      onClick={onClick}
     >
       {children}
     </button>
   );
-}
-
-interface Props {
-  className?: string;
-  onClick?: any;
-  children: any;
 }
