@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Head from "next/head";
+import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import ProfilePicture from "../components/ProfilePicture";
@@ -17,6 +18,8 @@ export default function SettingsPage() {
   const [lastName, setLastName] = useState(user?.lastName);
   const [username, setUsername] = useState(user?.username);
 
+  const { enqueueSnackbar } = useSnackbar();
+
   useEffect(() => {
     setFirstName(user?.firstName);
     setLastName(user?.lastName);
@@ -28,6 +31,7 @@ export default function SettingsPage() {
     queryFn: () => updateUser(user!.id, { firstName, lastName, username }),
     onSuccess(data) {
       setUser(data);
+      enqueueSnackbar("Settings updated!", { variant: "success" });
     },
     enabled: false,
   });

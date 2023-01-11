@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export default async function fetchUser(userId: string) {
+export default async function fetchUser(id: number) {
   try {
-    const { data } = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/current`
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/${id}`
     );
 
     return data;
