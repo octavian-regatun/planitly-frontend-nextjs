@@ -1,11 +1,27 @@
 import create from "zustand";
 
-interface AuthStore {
-  userId?: string;
-  setUserId: (userId: string) => void;
+export interface User {
+  id: number;
+  username: string;
+  picture: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  birthday: null | Date;
+  locale: null | Date;
+  role: string;
+  authProvider: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export const authStore = create<AuthStore>((set) => ({
-  userId: undefined,
-  setUserId: (userId: string) => set({ userId }),
+interface AuthStore {
+  user: User | null;
+  setUser: (user: User) => void;
+}
+
+export const useAuthStore = create<AuthStore>((set) => ({
+  user: null,
+  setUser: (user: User) => set({ user }),
 }));

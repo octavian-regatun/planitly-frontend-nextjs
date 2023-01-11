@@ -1,12 +1,10 @@
 import { useRouter } from "next/router";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
+import { MdNotifications, MdSettings } from "react-icons/md";
 import { getNavbarTitle } from "../utilities/navbarUtilities";
 import Logo from "./Logo";
 import ProfileSectionNavbar from "./ProfileSectionNavbar";
 import Text from "./Text";
-import { MdSettings } from "react-icons/md";
-import { MdNotifications } from "react-icons/md";
-
 import Link from "next/link";
 
 export default function Navbar() {
@@ -19,7 +17,11 @@ export default function Navbar() {
   return (
     <nav className="h-16 flex justify-between w-screen absolute top-0 z-10 bg-gradient-to-r from-indigo-900 to-slate-900 shadow-lg items-center">
       <div className="col-span-3 h-full ml-4 flex items-center">
-        <Logo size="lg" />
+        <Link href="dashboard">
+          <a>
+            <Logo size="lg" />
+          </a>
+        </Link>
       </div>
       <div className="col-span-6 h-full flex items-center">
         <Text type="h3" className="text-white ">
@@ -27,11 +29,11 @@ export default function Navbar() {
         </Text>
       </div>
       <div className="col-span-3 h-full flex items-center text-white">
-        <ProfileSectionNavbar firstName="Octavian" lastName="Regatun" />
+        <ProfileSectionNavbar />
         <Link href="settings">
           <MdSettings
             size={28}
-            className="box-content p-2 hover:bg-white hover:bg-opacity-5 rounded-full"
+            className="box-content p-2 hover:bg-white hover:bg-opacity-5 rounded-full cursor-pointer"
           />
         </Link>
         <button>

@@ -1,7 +1,9 @@
 import axios from "axios";
+import { decode } from "jsonwebtoken";
 import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
+import { useAuthStore, User } from "../store/authStore";
 import checkValidJwt from "../utilities/checkValidJwt";
 import FullScreenLoader from "./FullScreenLoader";
 
@@ -14,6 +16,9 @@ export default function RequireAuth(props: Props) {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const user = useAuthStore((x) => x.user);
+  const setUser = useAuthStore((x) => x.setUser);
 
   const { enqueueSnackbar } = useSnackbar();
   const router = useRouter();
@@ -28,8 +33,19 @@ export default function RequireAuth(props: Props) {
 
         const isJwtValid = await checkValidJwt();
 
-        if (isJwtValid) setIsAuthenticated(true);
-        else {
+        if (isJwtValid) {
+          setIsAuthenticated(true);
+
+          const user = decode(jwt, { complete: false }) as User & {
+            exp?: number;
+            iat?: number;
+          };
+
+          delete user.exp;
+          delete user.iat;
+
+          setUser(user);
+        } else {
           setIsAuthenticated(false);
           enqueueSnackbar("Please log in!", { variant: "error" });
           router.push("/");
@@ -43,11 +59,7 @@ export default function RequireAuth(props: Props) {
     })();
   }, []);
 
-  return isLoading ? (
-    <FullScreenLoader />
-  ) : isAuthenticated ? (
-    <>{children}</>
-  ) : (
-    <FullScreenLoader />
-  );
+  if (isLoading) return <FullScreenLoader />;
+  if (isAuthenticated) return <>{children}</>;
+  return <FullScreenLoader />;
 }

@@ -4,6 +4,10 @@ export function getNavbarTitle(url: string) {
       return "Dashboard";
     case "/calendar":
       return "Calendar";
+    case "/settings":
+      return "Settings";
+    case "/social":
+      return "Social";
     default:
       return "Page Title";
   }

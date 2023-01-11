@@ -15,9 +15,11 @@ export default function Sidebar() {
           <FiCalendar />
         </a>
       </Link>
-      <a className="hover:backdrop-brightness-75 rounded-md text-3xl text-white w-16 h-16 flex flex-col justify-center items-center ">
-        <MdPeople />
-      </a>
+      <Link href="social">
+        <a className="hover:backdrop-brightness-75 rounded-md text-3xl text-white w-16 h-16 flex flex-col justify-center items-center ">
+          <MdPeople />
+        </a>
+      </Link>
     </div>
   );
 }
