@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from "./stringUtilities";
+import {capitalizeFirstLetter} from "./stringUtilities";
 
 export enum WeekDay {
   Monday,
@@ -32,7 +32,7 @@ export function formatWeekDay(
     numberOfLetters: undefined,
   }
 ) {
-  const { capitalize, numberOfLetters } = options;
+  const {capitalize, numberOfLetters} = options;
   let formattedWeekDay = weekDays[weekDay];
 
   if (capitalize) formattedWeekDay = capitalizeFirstLetter(formattedWeekDay);

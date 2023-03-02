@@ -12,5 +12,5 @@ interface CurrentLocationStore {
 
 export const useCurrentLocationStore = create<CurrentLocationStore>((set) => ({
   currentLocation: undefined,
-  setCurrentLocation: (currentLocation) => set(() => ({ currentLocation })),
+  setCurrentLocation: (currentLocation) => set(() => ({currentLocation})),
 }));

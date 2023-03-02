@@ -11,7 +11,7 @@ export default function DashboardPage() {
       </Head>
       <RequireAuth>
         <Layout>
-          <div className="w-full h-full grid grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900 p-8">
+          <div className="grid h-full w-full grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900 p-8">
             <DashboardContent />
           </div>
         </Layout>

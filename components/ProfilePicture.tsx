@@ -1,5 +1,5 @@
-import { Avatar } from "@mui/material";
-import { useEffect, useRef } from "react";
+import {Avatar} from "@mui/material";
+import {useEffect, useRef} from "react";
 import textFit from "textfit";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   size: number;
 }
 
-export default function ProfilePicture({ firstName, lastName, size }: Props) {
+export default function ProfilePicture({firstName, lastName, size}: Props) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function ProfilePicture({ firstName, lastName, size }: Props) {
     <Avatar
       ref={ref}
       className="bg-orange-600 rounded-full flex items-center justify-center p-2"
-      style={{ width: size, height: size }}
+      style={{width: size, height: size}}
     >
       {firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase()}
     </Avatar>

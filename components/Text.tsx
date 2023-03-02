@@ -1,4 +1,4 @@
-export default function Text({ type, children, className }: Props) {
+export default function Text({type, children, className}: Props) {
   switch (type) {
     case "h1":
       return <h1 className={`${className} text-6xl`}>{children}</h1>;

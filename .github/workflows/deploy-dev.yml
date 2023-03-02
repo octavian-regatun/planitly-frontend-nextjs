@@ -3,7 +3,7 @@ name: prod workflow
 on:
   workflow_dispatch:
   push:
-    branches: [develop]
+    branches: [ develop ]
 
 jobs:
   docker-build-and-deploy:

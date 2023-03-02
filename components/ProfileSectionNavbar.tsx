@@ -1,4 +1,4 @@
-import { useAuthStore } from "../store/authStore";
+import {useAuthStore} from "../store/authStore";
 import Button from "./Button";
 import ProfilePicture from "./ProfilePicture";
 import Text from "./Text";

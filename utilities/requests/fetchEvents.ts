@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetEventDto } from "../../dto/GetEventDto";
+import {GetEventDto} from "../../dto/GetEventDto";
 
 interface Options {
   isAuthor: boolean;
@@ -7,12 +7,12 @@ interface Options {
 }
 
 export async function fetchEvents(
-  options: Options = { isAuthor: true, isParticipant: true }
+  options: Options = {isAuthor: true, isParticipant: true}
 ) {
   try {
-    const { data } = await axios.get<GetEventDto[]>(
+    const {data} = await axios.get<GetEventDto[]>(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/events`,
-      { params: options }
+      {params: options}
     );
 
     return data;

@@ -18,7 +18,7 @@ export default function DashboardContent() {
         </div>
       </div>
       <div className="col-span-4 flex items-center justify-center ml-8 h-full">
-        <Calendar />
+        <Calendar/>
       </div>
     </>
   );

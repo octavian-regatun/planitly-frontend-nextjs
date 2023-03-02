@@ -1,4 +1,4 @@
-import { formatWeekDay, WeekDay, weekDays } from "../../utilities/calendar";
+import {formatWeekDay, WeekDay} from "../../utilities/calendar";
 
 export default function WeekDays() {
   return (

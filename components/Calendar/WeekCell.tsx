@@ -1,4 +1,4 @@
-import { useCalendarStore } from "../../store/useCalendarStore";
+import {useCalendarStore} from "../../store/useCalendarStore";
 import DayCell from "./DayCell";
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function WeekCell(props: Props) {
-  const { week } = props;
+  const {week} = props;
 
   const pickedDate = useCalendarStore((state) => state.date);
 

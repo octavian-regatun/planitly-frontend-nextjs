@@ -1,9 +1,9 @@
 import axios from "axios";
-import { UpdateUserDto } from "../../dto/UpdateUserDto";
+import {UpdateUserDto} from "../../dto/UpdateUserDto";
 
 export async function updateUser(userId: number, updateUserDto: UpdateUserDto) {
   try {
-    const { data } = await axios.patch(
+    const {data} = await axios.patch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/${userId}`,
       {
         ...updateUserDto,

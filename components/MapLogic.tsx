@@ -1,16 +1,16 @@
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from "react";
-import { useMap, useMapEvents } from "react-leaflet";
-import { publicIpv4 } from "public-ip";
-import { useIpStore } from "../store/useIpStore";
-import { LatLon, useCurrentLocationStore } from "../store/currentLocationStore";
-import { fetchLocation } from "../utilities/requests/fetchIpLocation";
+import {Dispatch, SetStateAction, useEffect} from "react";
+import {useMap} from "react-leaflet";
+import {publicIpv4} from "public-ip";
+import {useIpStore} from "../store/useIpStore";
+import {LatLon, useCurrentLocationStore} from "../store/currentLocationStore";
+import {fetchLocation} from "../utilities/requests/fetchIpLocation";
 
 interface Props {
   setPickedLocation: Dispatch<SetStateAction<LatLon | undefined>>;
 }
 
 export default function MapLogic(props: Props) {
-  const { setPickedLocation } = props;
+  const {setPickedLocation} = props;
 
   const ip = useIpStore((x) => x.ip);
   const setIp = useIpStore((x) => x.setIp);
@@ -24,7 +24,7 @@ export default function MapLogic(props: Props) {
     publicIpv4().then((ip) => setIp(ip));
 
     map.addEventListener("click", (e) => {
-      setPickedLocation({ lat: e.latlng.lat, lon: e.latlng.lng });
+      setPickedLocation({lat: e.latlng.lat, lon: e.latlng.lng});
     });
   }, []);
 

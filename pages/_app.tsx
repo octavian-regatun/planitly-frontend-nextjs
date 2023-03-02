@@ -1,15 +1,16 @@
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import "leaflet/dist/leaflet.css";
-import type { AppProps } from "next/app";
-import NextNProgress from "nextjs-progressbar";
-import { SnackbarProvider } from "notistack";
-import { SnackbarUtilsConfigurator } from "../components/SnackbarUtilsConfigurator";
-import "../styles/globals.scss";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns"
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
+import { GoogleOAuthProvider } from "@react-oauth/google"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import "leaflet/dist/leaflet.css"
+import type { AppProps } from "next/app"
+import NextNProgress from "nextjs-progressbar"
+import { SnackbarProvider } from "notistack"
+import { SnackbarUtilsConfigurator } from "../components/SnackbarUtilsConfigurator"
+import "../styles/globals.scss"
+import "../components/TextEditor/TextEditor.css"
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -34,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </LocalizationProvider>
       </SnackbarProvider>
     </QueryClientProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

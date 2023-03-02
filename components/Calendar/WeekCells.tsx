@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { useCalendarStore } from "../../store/useCalendarStore";
-import { fetchCalendar } from "../../utilities/requests/fetchCalendar";
+import {useQuery} from "@tanstack/react-query";
+import {useCalendarStore} from "../../store/useCalendarStore";
+import {fetchCalendar} from "../../utilities/requests/fetchCalendar";
 import WeekCell from "./WeekCell";
 
 export default function WeekCells() {
@@ -15,7 +15,7 @@ export default function WeekCells() {
   return (
     <div className="grid grid-rows-6 flex-1">
       {calendarQuery.data?.map((week, index) => (
-        <WeekCell key={`calendar-week-${index}`} week={week} />
+        <WeekCell key={`calendar-week-${index}`} week={week}/>
       ))}
     </div>
   );

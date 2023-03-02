@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ab8c78b5-b9e3-4db1-8526-7d8888f63bcb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/TextEditor/TextEditor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/TextEditor/TextEditor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/TextEditor/ToolbarPlugin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utilities/requests/eventsRequests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Calendar/Calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Calendar/Calendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Calendar/ChangeMonthButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Calendar/ChangeMonthButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Calendar/CurrentDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Calendar/CurrentDate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Calendar/DayCell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Calendar/DayCell.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Calendar/WeekCell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Calendar/WeekCell.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Calendar/WeekCells.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Calendar/WeekCells.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Calendar/WeekDays.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Calendar/WeekDays.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CreateNewEventPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CreateNewEventPopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/DashboardContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/DashboardContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/EventCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/EventCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/EventList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/EventList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FullScreenLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FullScreenLoader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/GoogleLoginCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/GoogleLoginCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Logo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MapLogic.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MapLogic.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProfilePicture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProfilePicture.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProfileSectionNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProfileSectionNavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RequireAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RequireAuth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SnackbarUtilsConfigurator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SnackbarUtilsConfigurator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SocialPage/Friends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SocialPage/Friends.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Text.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Text.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WhiteTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WhiteTextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/calendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/social.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/social.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/authStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/authStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/currentLocationStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/currentLocationStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/useCalendarStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/useCalendarStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/useIpStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/useIpStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/calendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/calendar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/errorUtilities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/errorUtilities.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/requests/fetchCalendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/requests/fetchCalendar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/requests/fetchEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/requests/fetchEvents.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/requests/fetchIpLocation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/requests/fetchIpLocation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/requests/fetchJwt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/requests/fetchJwt.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/requests/fetchUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/requests/fetchUser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/requests/postEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/requests/postEvent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/requests/updateUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/requests/updateUser.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KlxTaDBmMoY7X9p8zd1pVA0NDf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/DEV/Personal/planitly-backend-nestjs&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\DEV\\Personal\\planitly-frontend-nextjs\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\DEV\\Personal\\planitly-frontend-nextjs\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TypeScript JSX&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\DEV\Personal\planitly-frontend-nextjs\components\TextEditor" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="localhost:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:3000" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ab8c78b5-b9e3-4db1-8526-7d8888f63bcb" name="Changes" comment="" />
+      <created>1674562979379</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674562979379</updated>
+      <workItem from="1674562981799" duration="369000" />
+      <workItem from="1674571587438" duration="10000" />
+      <workItem from="1674571606560" duration="2000" />
+      <workItem from="1674571682912" duration="323000" />
+      <workItem from="1674572598396" duration="649000" />
+      <workItem from="1674573836226" duration="2749000" />
+      <workItem from="1674587661949" duration="484000" />
+      <workItem from="1674592044001" duration="2474000" />
+      <workItem from="1674597289090" duration="1313000" />
+      <workItem from="1674769675335" duration="1192000" />
+      <workItem from="1674835923384" duration="18000" />
+      <workItem from="1674835953935" duration="54000" />
+      <workItem from="1674836388785" duration="4101000" />
+      <workItem from="1674911269611" duration="122000" />
+      <workItem from="1675028042058" duration="47000" />
+      <workItem from="1675066808055" duration="1400000" />
+      <workItem from="1675072036404" duration="1393000" />
+      <workItem from="1675083369397" duration="130000" />
+      <workItem from="1675120801162" duration="68000" />
+      <workItem from="1675120878684" duration="852000" />
+      <workItem from="1675168494084" duration="1464000" />
+      <workItem from="1675170266419" duration="49000" />
+      <workItem from="1675170320266" duration="2000" />
+      <workItem from="1675170355613" duration="223000" />
+      <workItem from="1675171313679" duration="26000" />
+      <workItem from="1675174967210" duration="2135000" />
+      <workItem from="1675188877404" duration="65000" />
+      <workItem from="1675188946814" duration="79000" />
+      <workItem from="1675189039055" duration="9813000" />
+      <workItem from="1675265192720" duration="699000" />
+      <workItem from="1675283078401" duration="574000" />
+      <workItem from="1675292062503" duration="7625000" />
+      <workItem from="1675323786624" duration="11268000" />
+      <workItem from="1675363836708" duration="5022000" />
+      <workItem from="1675375873151" duration="10261000" />
+      <workItem from="1675450219530" duration="178000" />
+      <workItem from="1675455910576" duration="416000" />
+      <workItem from="1675456361998" duration="2005000" />
+      <workItem from="1675463494470" duration="4599000" />
+      <workItem from="1675554967000" duration="962000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

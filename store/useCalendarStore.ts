@@ -12,12 +12,12 @@ export const useCalendarStore = create<CalendarStore>((set) => ({
     set((prevState) => {
       const date = new Date(prevState.date);
       date.setMonth(date.getMonth() + 1);
-      return { date };
+      return {date};
     }),
   prevMonth: () =>
     set((prevState) => {
       const date = new Date(prevState.date);
       date.setMonth(date.getMonth() - 1);
-      return { date };
+      return {date};
     }),
 }));

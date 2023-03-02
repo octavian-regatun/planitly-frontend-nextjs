@@ -1,18 +1,11 @@
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
+import {MapContainer, Marker, Popup, TileLayer,} from "react-leaflet";
 import L from "leaflet";
 import MapLogic from "./MapLogic";
-import { LatLon, useCurrentLocationStore } from "../store/currentLocationStore";
-import { Dispatch, SetStateAction } from "react";
-import { Button } from "@mui/material";
+import {LatLon, useCurrentLocationStore} from "../store/currentLocationStore";
+import {Dispatch, SetStateAction} from "react";
+import {Button} from "@mui/material";
 
 interface Props {
   pickedPosition: LatLon | undefined;
@@ -29,7 +22,7 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function Map(props: Props) {
-  const { pickedPosition, setPickedLocation } = props;
+  const {pickedPosition, setPickedLocation} = props;
 
   const currentLocation = useCurrentLocationStore((x) => x.currentLocation);
 
@@ -45,7 +38,7 @@ export default function Map(props: Props) {
         scrollWheelZoom={false}
         className="h-64 w-full rounded"
       >
-        <MapLogic setPickedLocation={setPickedLocation} />
+        <MapLogic setPickedLocation={setPickedLocation}/>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

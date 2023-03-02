@@ -7,5 +7,5 @@ interface IpStore {
 
 export const useIpStore = create<IpStore>((set) => ({
   ip: undefined,
-  setIp: (ip) => set(() => ({ ip })),
+  setIp: (ip) => set(() => ({ip})),
 }));

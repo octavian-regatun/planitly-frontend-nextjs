@@ -16,10 +16,11 @@ export default function CalendarPage() {
             className={`h-full bg-gradient-to-r from-indigo-900 to-slate-900 w-full grid grid-cols-12 p-8 gap-4`}
           >
             <div className="col-span-8">
-              <Calendar />
+              <Calendar/>
             </div>
-            <div className="col-span-4 overflow-auto scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-full scrollbar-track-rounded-full pr-2">
-              <EventList />
+            <div
+              className="col-span-4 overflow-auto pr-2 scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+              <EventList/>
             </div>
           </div>
         </Layout>

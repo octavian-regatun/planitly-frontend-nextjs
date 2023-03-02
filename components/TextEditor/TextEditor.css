@@ -1,0 +1,15 @@
+.quill {
+  @apply bg-white rounded border-0 w-full overflow-auto max-h-[200px];
+}
+
+.ql-toolbar {
+  @apply border-0 !important;
+}
+
+.ql-container {
+  @apply border-0 !important;
+}
+
+.ql-editor {
+  @apply text-black;
+}

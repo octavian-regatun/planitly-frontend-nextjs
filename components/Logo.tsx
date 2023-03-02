@@ -6,7 +6,7 @@ interface Props {
   size: Size;
 }
 
-export default function Logo({ size }: Props) {
+export default function Logo({size}: Props) {
   return (
     <Image
       src="/logo.svg"

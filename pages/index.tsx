@@ -9,17 +9,17 @@ const Home: NextPage = () => {
       <Head>
         <title>PlanITLY - Home</title>
       </Head>
-      <div className="h-screen w-screen grid grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900">
-        <div className="col-span-12 md:col-span-9 flex flex-col flex-1 justify-center px-4 md:px-24 items-center">
-          <h1 className="w-fit text-7xl md:text-9xl text-center mb-24 text-white  ">
+      <div className="grid h-screen w-screen grid-cols-12 bg-gradient-to-r from-indigo-900 to-slate-900">
+        <div className="col-span-12 flex flex-1 flex-col items-center justify-center px-4 md:col-span-9 md:px-24">
+          <h1 className="mb-24 w-fit text-center text-7xl text-white md:text-9xl  ">
             PlanITLY
           </h1>
-          <div className="w-full text-xl md:text-7xl text-center text-white">
+          <div className="w-full text-center text-xl text-white md:text-7xl">
             <Typewriter
               options={{ loop: true }}
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("Its now easier than ever to <br/>")
+                  .typeString("It's now easier than ever to <br/>")
                   .typeString(
                     "<span class='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500'>organize events for everyone</span>"
                   )
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        <div className="flex-1 h-full flex justify-center items-center col-span-12 md:col-span-3">
+        <div className="col-span-12 flex h-full flex-1 items-center justify-center md:col-span-3">
           <GoogleLoginCard />
         </div>
       </div>

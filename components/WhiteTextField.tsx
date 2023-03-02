@@ -1,5 +1,4 @@
-import { TextField, TextFieldProps } from "@mui/material";
-import { styled } from "@mui/system";
+import {TextField, TextFieldProps} from "@mui/material";
 
 const styles = {
   "& .MuiInputBase-input": {
@@ -31,5 +30,5 @@ const styles = {
 };
 
 export const WhiteTextField = (props: TextFieldProps) => (
-  <TextField {...props} sx={styles} />
+  <TextField {...props} sx={styles}/>
 );

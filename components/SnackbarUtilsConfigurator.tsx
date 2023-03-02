@@ -1,4 +1,4 @@
-import { useSnackbar, VariantType, WithSnackbarProps } from "notistack";
+import {useSnackbar, VariantType, WithSnackbarProps} from "notistack";
 
 let useSnackbarRef: WithSnackbarProps;
 export const SnackbarUtilsConfigurator: React.FC = () => {
@@ -20,8 +20,8 @@ const notistackUtils = {
     this.toast(msg, "error");
   },
   toast(msg: string, variant: VariantType = "default") {
-    useSnackbarRef.enqueueSnackbar(msg, { variant });
+    useSnackbarRef.enqueueSnackbar(msg, {variant});
   },
 };
 
-export { notistackUtils };
+export {notistackUtils};
